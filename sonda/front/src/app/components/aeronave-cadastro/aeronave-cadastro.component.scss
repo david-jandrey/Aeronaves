@@ -1,0 +1,22 @@
+.titulo{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+.container{
+    width: 50%;
+}
+.btn-gravar{
+    display: flex;
+    justify-content: right;
+    width: 100%;
+    button{
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+.row{
+    margin-top: 7px;
+    margin-bottom: 4px;
+}
