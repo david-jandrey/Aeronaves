@@ -1,6 +1,7 @@
 package br.com.sonda.controllers;
 
 import java.time.LocalDateTime;
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,7 +14,9 @@ import br.com.sonda.model.Aeronave;
 import br.com.sonda.repository.AeronaveRepository;
 
 @RestController
-@RequestMapping("/aeronaves")
+@CrossOrigin(origins = "*", allowedHeaders = "*", exposedHeaders="Access-Control-Allow-Origin")
+//@CrossOrigin(exposedHeaders="Access-Control-Allow-Origin")
+@RequestMapping("/api/aeronaves")
 public class AeronaveController {
 
     @Autowired
@@ -31,6 +34,15 @@ public class AeronaveController {
         return null;
     }
 
+    @GetMapping("/")
+    public ResponseEntity aeronaveList() {
+
+        Collection<Aeronave> aeronaves = this.aeronaveRepository.findAll();
+
+
+        return new ResponseEntity(aeronaves, HttpStatus.OK);
+    }
+
     @GetMapping("/decada")
     public List<Object> agruparDecada() {
         return this.aeronaveRepository.findCountAgruparDecada();
@@ -46,7 +58,7 @@ public class AeronaveController {
         return this.aeronaveRepository.findCountVendido();
     }
 
-    @PostMapping("/")
+    @PostMapping("")
     public ResponseEntity salvarAeronave(@RequestBody Aeronave aeronave) {
 
         aeronave.setCreadted(LocalDateTime.now());
