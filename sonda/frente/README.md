@@ -13,6 +13,6 @@ Este projeto foi gerado com [Angular CLI](https://github.com/angular/angular-cli
   
   ng serve
 
-  depois que roda os comandos é só abrir na url http://localhost:4200/ que o projeto estará rodando
+  depois que rodar os comandos é só abrir na url http://localhost:4200/ que o projeto estará rodando
 
 
